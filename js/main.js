@@ -26,6 +26,7 @@ const albumsData = [
     title: "Fall Of The Risen",
     year: "2026",
     cover: "https://f4.bcbits.com/img/a0369548261_2.jpg",
+    bandcampEmbed: "https://bandcamp.com/EmbeddedPlayer/album=959741205/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/artwork=small/transparent=true/",
     songs: [
       { title: "Last Breath", duration: "04:45", lyricsKey: "lastBreath" },
       { title: "Fallen Dolls Home", duration: "03:32", lyricsKey: "fallenDollsHome" },
@@ -41,6 +42,7 @@ const albumsData = [
     title: "Asylumed feat. Max Space",
     year: "2026",
     cover: "https://f4.bcbits.com/img/a0151109470_2.jpg",
+    bandcampEmbed: "https://bandcamp.com/EmbeddedPlayer/track=3778416195/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/artwork=small/transparent=true/",
     songs: [
       { title: "Asylumed", duration: "02:31", lyricsKey: "asylumed" }
     ]
@@ -49,6 +51,7 @@ const albumsData = [
     title: "Extreme Invasion Live",
     year: "2025",
     cover: "https://f4.bcbits.com/img/a0854022618_2.jpg",
+    bandcampEmbed: "https://bandcamp.com/EmbeddedPlayer/album=1905507283/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/artwork=small/transparent=true/",
     songs: [
       { title: "Beyond", duration: "01:34", lyricsKey: "beyond" },
       { title: "Last Breath", duration: "05:02", lyricsKey: "lastBreath" },
@@ -63,6 +66,7 @@ const albumsData = [
     title: "Hope For Tomorrow [Single]",
     year: "2025",
     cover: "https://f4.bcbits.com/img/a4225162547_2.jpg",
+    bandcampEmbed: "https://bandcamp.com/EmbeddedPlayer/track=1087920343/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/artwork=small/transparent=true/",
     songs: [
       { title: "Hope For Tomorrow", duration: "03:27", lyricsKey: "hopeForTomorrow" }
     ]
@@ -71,6 +75,7 @@ const albumsData = [
     title: "Last Breath [Single]",
     year: "2024",
     cover: "https://f4.bcbits.com/img/a2736365349_2.jpg",
+    bandcampEmbed: "https://bandcamp.com/EmbeddedPlayer/track=1012695370/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/artwork=small/transparent=true/",
     songs: [
       { title: "Last Breath", duration: "04:17", lyricsKey: "lastBreath" }
     ]
@@ -79,6 +84,7 @@ const albumsData = [
     title: "Dying Sun",
     year: "2017",
     cover: "https://f4.bcbits.com/img/a2995812742_2.jpg",
+    bandcampEmbed: "https://bandcamp.com/EmbeddedPlayer/track=4113379973/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/artwork=small/transparent=true/",
     songs: [
       { title: "Dying Sun", duration: "03:06", lyricsKey: "dyingSun" }
     ]
@@ -87,6 +93,7 @@ const albumsData = [
     title: "The Gates Of Babylon",
     year: "2017",
     cover: "https://f4.bcbits.com/img/a0431324215_2.jpg",
+    bandcampEmbed: "https://bandcamp.com/EmbeddedPlayer/track=2842654250/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/artwork=small/transparent=true/",
     songs: [
       { title: "The Gates Of Babylon", duration: "04:32", lyricsKey: "gatesOfBabylon" }
     ]
@@ -101,6 +108,8 @@ const activeMeta = document.querySelector('#activeAlbumMeta');
 const counter = document.querySelector('#albumCounter');
 const prevButton = document.querySelector('#albumPrev');
 const nextButton = document.querySelector('#albumNext');
+const bandcampPlayerWrap = document.querySelector("#bandcampPlayerWrap");
+const bandcampPlayer = document.querySelector("#bandcampPlayer");
 let activeAlbumIndex = 0;
 const padNumber = (num) => String(num).padStart(2, '0');
 function getSongLyrics(song) {
@@ -133,10 +142,25 @@ function setActiveAlbum(index){
   const album = albumsData[activeAlbumIndex];
   coverStage.classList.remove('is-switching'); void coverStage.offsetWidth; coverStage.classList.add('is-switching');
   activeCover.style.backgroundImage = `url("${album.cover}")`;
-  activeTitle.textContent = album.title;
-  activeMeta.textContent = `${album.year} / ${album.songs.length} ${album.songs.length === 1 ? 'track' : 'tracks'}`;
-  counter.textContent = `${padNumber(activeAlbumIndex+1)} / ${padNumber(albumsData.length)}`;
-  renderAlbumsGrid(); renderSongs(album);
+activeTitle.textContent = album.title;
+activeMeta.textContent = `${album.year} / ${album.songs.length} ${album.songs.length === 1 ? "track" : "tracks"}`;
+counter.textContent = `${padNumber(activeAlbumIndex + 1)} / ${padNumber(albumsData.length)}`;
+
+if (bandcampPlayer && bandcampPlayerWrap) {
+  if (album.bandcampEmbed) {
+    bandcampPlayerWrap.style.display = "block";
+
+    if (bandcampPlayer.getAttribute("src") !== album.bandcampEmbed) {
+      bandcampPlayer.setAttribute("src", album.bandcampEmbed);
+    }
+  } else {
+    bandcampPlayer.setAttribute("src", "");
+    bandcampPlayerWrap.style.display = "none";
+  }
+}
+
+renderAlbumsGrid();
+renderSongs(album);
 }
 if(prevButton) prevButton.addEventListener('click',()=>setActiveAlbum(activeAlbumIndex-1));
 if(nextButton) nextButton.addEventListener('click',()=>setActiveAlbum(activeAlbumIndex+1));
