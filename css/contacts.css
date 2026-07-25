@@ -55,13 +55,7 @@
 }
 
 .contacts__email-card::before {
-  content: "CONTACT_TRANSMISSION";
-  display: block;
-  margin-bottom: 24px;
-  color: rgba(255,255,255,.34);
-  font-size: 12px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
+  content: none;
 }
 
 .contacts__label {

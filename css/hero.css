@@ -51,8 +51,8 @@
     saturate(6)
     hue-rotate(-20deg)
     contrast(1.65)
-    brightness(.70);
-  animation: heroGlitchRed 4.85s steps(1, end) infinite;
+    brightness(.9);
+  animation: heroGlitchRed 1.85s steps(1, end) infinite;
 }
 
 .hero__glitch--blue {
@@ -61,8 +61,8 @@
     saturate(6)
     hue-rotate(150deg)
     contrast(1.65)
-    brightness(.75);
-  animation: heroGlitchBlue 4.75s steps(1, end) infinite;
+    brightness(.85);
+  animation: heroGlitchBlue 1.75s steps(1, end) infinite;
 }
 
 /* Noise */

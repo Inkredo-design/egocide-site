@@ -23,6 +23,15 @@ if (header && burger) {
 
 const albumsData = [
   {
+    title: "A Gomorrah's Deeds",
+    year: "2026",
+    cover: "https://f4.bcbits.com/img/a3210269592_10.jpg",
+    bandcampEmbed: "https://bandcamp.com/EmbeddedPlayer/track=3249792566/size=large/bgcol=333333/linkcol=e32c14/tracklist=false/artwork=small/transparent=true/",
+    songs: [
+      { title: "A Gomorrah's Deeds", duration: "03:28", lyricsKey: "aGomorrahsDeeds" }
+    ]
+  },
+  {
     title: "Fall Of The Risen",
     year: "2026",
     cover: "https://f4.bcbits.com/img/a0369548261_2.jpg",

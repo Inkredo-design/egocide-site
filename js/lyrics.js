@@ -1,4 +1,48 @@
 window.EGOCIDE_LYRICS = {
+  aGomorrahsDeeds: `We know what we want
+We live only once
+We die in an instant
+Sensing someone's presence
+
+It doesn't matter who it will be
+It could be you or me
+The plague comes from the west,
+Scattering spores.
+It explodes a human's rest
+Spreads the hotbeds of war
+The entire East
+Is already affected
+Everyone lies about
+The peace they protect
+
+CH:
+Success breeds impunity
+Death retreats.
+Social immaturity,
+This is a Gomorrah's deeds
+
+Like in the tale
+About sulfur and salt
+Either this is coming, again
+On the death scale
+to ten. They extol
+Human vices, and so on.
+
+Debauchery reigns in the world
+Brought by the plague
+It imposes itself for
+The caged brain
+We are lied to about
+The Babylonian whores
+From the screens of every home
+We can still make a choice
+
+CH:
+Success breeds impunity
+Death retreats.
+Social immaturity,
+This is a Gomorrah's deeds`,
+
   lastBreath: `Was it that low?
 The question now: was it?
 Meaningless one day,

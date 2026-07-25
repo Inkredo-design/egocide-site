@@ -27,7 +27,7 @@
 }
 
 .gallery::after {
-  content: "PHOTO_ARCHIVE / LIVE_SIGNAL";
+  content: "PHOTO ARCHIVE";
   position: absolute;
   right: clamp(16px, 4vw, 72px);
   bottom: 28px;
